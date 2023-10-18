@@ -1,18 +1,22 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
   <h2 class="page-header">My playlist</h2>
-  <TracksList />
+  <TracksList/>
 </template>
 
 <style scoped>
-  .page-header {
-    text-align: center;
-    margin: 1rem 0 2rem;
-    color: var(--electric-indigo);
-    font-weight: 700; /*todo font weight*/
+.page-header {
+  margin: 1rem 0 1rem;
+  font-size: 1.2rem;
+  color: var(--black);
+  font-weight: 700; /*todo font weight*/
+  user-select: none;
+
+  @media screen and (min-width: 768px) {
     font-size: 2rem;
+    margin: 1rem 0 2rem;
   }
+}
 </style>

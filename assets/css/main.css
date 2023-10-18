@@ -1,32 +1,39 @@
 :root {
   --electric-indigo: #6600ff;
+  --black: #18013d;
+
   --light-gray: #dddddd;
-  --extra-light-gray: #f1f1f1;
+  --gray: #aaaaaa;
+  --extra-light-gray: #f5f5f5;
 
   --header-height: 60px;
   --footer-height: 130px;
+
+  @media screen and (min-width: 768px) {
+    --header-height: 90px;
+  }
 }
 
 @font-face {
-  font-family: 'Montserrat-Bold';
+  font-family: 'Montserrat';
   src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat-Regular';
+  font-family: 'Montserrat';
   src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat-Regular';
+  font-family: 'Montserrat';
   src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -35,10 +42,11 @@
 /*  #__nuxt {*/
 /*    background: #000000;*/
 /*  }*/
-/*}*/
+/*} todo theme*/
 
 html {
-  font-family: 'Montserrat-Regular', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--black);
 }
 
 html,
@@ -55,6 +63,7 @@ body,
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -76,7 +85,24 @@ svg {
 
 .custom-player .audio-player {
   .audio__btn-wrap {
-    justify-content: space-between;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .audio__btn-wrap > div {
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+
+  .audio__btn-wrap > div.audio__play-volume-icon-wrap {
+    margin-right: 0;
+
+    @media screen and (min-width: 768px) {
+      margin-left: auto;
+    }
   }
 
   .audio__play-start,
@@ -84,6 +110,24 @@ svg {
     display: flex;
     align-items: center;
     margin: 0;
+  }
+
+  .audio__play-start:hover,
+  .audio__play-pause:hover {
+
+    .cover-control::before {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      /* todo box-shadow?? */
+    }
+
+    .play-button {
+      color: var(--black);
+      opacity: 0.8;
+    }
   }
 
   .audio__play-start svg,
@@ -94,5 +138,14 @@ svg {
 
   .audio__progress-point:after {
     display: none;
+  }
+
+  .audio__play-volume-icon-wrap .audio__play-volume-wrap {
+    background-color: var(--gray);
+  }
+
+  .audio__current-time,
+  .audio__duration {
+    color: var(--light-gray);
   }
 }

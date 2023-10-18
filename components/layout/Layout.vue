@@ -1,20 +1,22 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
   <main class="main">
-    <NuxtPage />
+    <NuxtPage/>
   </main>
 </template>
 
 <style scoped>
-  .main {
-    flex: 1 0 auto;
-    overflow: hidden;
-    max-height: calc(100% - var(--header-height) - var(--footer-height) - 1rem);
-    display: flex;
-    flex-direction: column;
-    margin: 0 1rem;
+.main {
+  flex: 1 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 2rem;
   }
+}
 </style>
