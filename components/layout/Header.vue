@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HidePlayerButton from '~/components/HidePlayerButton.vue';
+import {AppRouter} from '~/consts/router';
 </script>
 
 <template>
@@ -7,13 +8,13 @@ import HidePlayerButton from '~/components/HidePlayerButton.vue';
     <nav class="nav">
       <ul class="links-list">
         <li class="links-item">
-          <NuxtLink class="routing-link" to="/">Home</NuxtLink>
+          <NuxtLink class="routing-link" :to="AppRouter.Main">Home</NuxtLink>
         </li>
         <li>
           <HidePlayerButton />
         </li>
         <li class="links-item">
-          <NuxtLink class="routing-link" to="/tracks">My Playlist</NuxtLink>
+          <NuxtLink class="routing-link" :to="AppRouter.TracksList">My Playlist</NuxtLink>
         </li>
       </ul>
     </nav>

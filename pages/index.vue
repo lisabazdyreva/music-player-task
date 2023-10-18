@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {AppRouter} from '~/consts/router';
 </script>
 
 <template>
@@ -8,8 +9,8 @@
     >
       Music App
     </h1>
-<!--    todo to consts-->
-    <NuxtLink class="routing-link" to="/tracks">Go to playlist >></NuxtLink>
+
+    <NuxtLink class="routing-link" :to="AppRouter.TracksList">Go to playlist >></NuxtLink>
   </div>
 </template>
 
