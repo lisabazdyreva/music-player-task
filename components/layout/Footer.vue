@@ -15,7 +15,7 @@ import TrackPlayer from '~/components/TrackPlayer/TrackPlayer.vue';
   margin-top: 1rem;
   border-radius: 5px 5px 0 0;
   padding: 1rem 0.5rem;
-  background-color: rgba(102, 0, 255);
+  background-color: var(--electric-indigo);
   flex: 0 0 auto;
 
   @media screen and (min-width: 768px) {

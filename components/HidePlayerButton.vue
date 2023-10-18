@@ -34,13 +34,24 @@ const buttonText = computed(() => `${store.isPlayerShowed ? 'Hide' : 'Show'} pla
   cursor: pointer;
   font-size: 0.7rem;
 
+  box-shadow: var(--shadow);
+
   @media screen and (min-width: 768px) {
     font-size: 1rem;
   }
 }
 
+.player-mode-button:hover,
+.player-mode-button:focus-visible {
+  box-shadow: var(--shadow-hover);
+}
+
+.player-mode-button:focus-visible {
+  outline: 3px solid var(--bg-color);
+}
+
 .player-mode-button:hover::before,
-.player-mode-button:focus::before {
+.player-mode-button:focus-visible::before {
   content: "";
   position: absolute;
   width: 100%;

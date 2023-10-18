@@ -10,7 +10,7 @@
 .page-header {
   margin: 1rem 0 1rem;
   font-size: 1.2rem;
-  color: var(--black);
+  color: var(--text-color);
   font-weight: 700;
   user-select: none;
 

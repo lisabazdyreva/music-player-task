@@ -1,6 +1,8 @@
 :root {
+  --black: #202124;
   --electric-indigo: #6600ff;
-  --black: #18013d;
+  --text-color: rgb(24,1,61);
+  --bg-color: #f0f0f0;
 
   --light-gray: #dddddd;
   --gray: #aaaaaa;
@@ -8,6 +10,11 @@
 
   --header-height: 60px;
   --footer-height: 130px;
+
+  --player-controls-color: #dddddd;
+
+  --shadow: rgba(170, 170, 170, 0.2) 0px 0px 10px 0px;
+  --shadow-hover: rgba(102, 0, 255, 0.5) 0px 0px 10px 0px;
 
   @media screen and (min-width: 768px) {
     --header-height: 90px;
@@ -38,15 +45,25 @@
   font-display: swap;
 }
 
-/*@media (prefers-color-scheme: dark) {*/
-/*  #__nuxt {*/
-/*    background: #000000;*/
-/*  }*/
-/*} todo theme*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --electric-indigo: #5c00e6;
+    --text-color: var(--gray);
+    --bg-color: var(--black);
+
+    --light-gray: #383a3f;
+    --extra-light-gray: #2c2c32;
+
+    --player-controls-color: var(--bg-color);
+  }
+
+  #__nuxt {
+    background-color: var(--bg-color);
+  }
+}
 
 html {
   font-family: 'Montserrat', sans-serif;
-  color: var(--black);
 }
 
 html,
@@ -59,6 +76,7 @@ body,
 #__nuxt {
   display: flex;
   flex-direction: column;
+  color: var(--text-color);
 }
 
 ::-webkit-scrollbar {
@@ -85,6 +103,7 @@ svg {
 
 .custom-player .audio-player {
   .audio__btn-wrap {
+    min-height: 50px;
     justify-content: center;
 
     @media screen and (min-width: 768px) {
@@ -107,25 +126,25 @@ svg {
 
   .audio__play-start,
   .audio__play-pause {
+    width: 100%;
+    max-width: 250px;
     display: flex;
+    justify-content: center;
     align-items: center;
     margin: 0;
+
+    @media screen and (min-width: 768px) {
+      max-width: unset;
+      width: unset;
+    }
   }
 
   .audio__play-start:hover,
-  .audio__play-pause:hover {
-
-    .cover-control::before {
-      content: "";
-      background-color: rgba(0, 0, 0, 0.3);
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      /* todo box-shadow?? */
-    }
-
+  .audio__play-pause:hover,
+  .audio__play-start:focus-visible,
+  .audio__play-pause:focus-visible {
     .play-button {
-      color: var(--black);
+      color: var(--text-color);
       opacity: 0.8;
     }
   }

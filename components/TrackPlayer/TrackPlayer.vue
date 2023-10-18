@@ -7,6 +7,7 @@ import ArrowButton from '~/components/TrackPlayer/ArrowButton/ArrowButton.vue';
 import ControlButton from '~/components/TrackPlayer/ControlButton/ControlButton.vue';
 
 import {ArrowButtonDirection, ControlButtonType,} from '~/consts';
+import {getPlayerNativeControlsColor} from '~/utils';
 
 const store = useTracksStore();
 
@@ -14,6 +15,8 @@ const currentTrack = computed(() => store.tracksFiltered[0]);
 const isCurrentTrackPlayed = computed(() => store.isCurrentTrackPlayed);
 
 const audioPlayerRef = ref<Ref<HTMLElement> | null>(null);
+
+const themeColor = ref<Ref<string> | null>(null);
 
 watch(currentTrack, async (_new, _old) => {
   if (!audioPlayerRef.value) {
@@ -65,6 +68,12 @@ const setTrack = (id: number) => {
 const getCurrentIndex = (currentId: number) => {
   return store.tracks.findIndex(({id}) => id === currentId);
 };
+
+onMounted(() => {
+  const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  themeColor.value = getPlayerNativeControlsColor(isDarkTheme);
+})
+
 </script>
 
 <template>
@@ -73,18 +82,18 @@ const getCurrentIndex = (currentId: number) => {
       <audio-player
         ref="audioPlayerRef"
         :audio-list="store.tracks.map(({url}) => url)"
-        theme-color="#f1f1f1"
+        :theme-color="themeColor"
         :show-playback-rate="false"
         :before-next="handleBeforeNext"
         :before-prev="handleBeforePrev"
-      >
-
+    >
         <template #play-start>
           <ControlButton
             :currentTrack="currentTrack"
             :type="ControlButtonType.Play"
           />
         </template>
+
 
         <template #play-pause>
           <ControlButton
@@ -108,5 +117,9 @@ const getCurrentIndex = (currentId: number) => {
 <style scoped>
 .player-wrapper {
   grid-column: 1 / -1;
+}
+
+.main-control {
+
 }
 </style>

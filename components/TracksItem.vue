@@ -88,7 +88,7 @@ const handleTrackItemClick = () => {
   }
 }
 
-.cover-control:focus .control-icon,
+.cover-control:focus-visible .control-icon,
 .track-item:hover .control-icon,
 .track-item-active .control-icon {
   display: block;
@@ -117,11 +117,21 @@ const handleTrackItemClick = () => {
   overflow: hidden;
   width: 50px;
   height: 50px;
+  box-shadow: var(--shadow);
 
   @media screen and (min-width: 768px) {
     width: 70px;
     height: 70px;
   }
+}
+
+.cover-control:focus-visible,
+.cover-control:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.cover-control:focus-visible {
+  outline: 1px solid var(--electric-indigo);
 }
 
 .cover-image {

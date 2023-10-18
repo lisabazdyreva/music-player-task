@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <button class="cover-control">
-    <svg class="control-button" aria-hidden="true" width="100%" height="100%">
+    <svg class="cover-icon" aria-hidden="true" width="100%" height="100%">
       <use :href="`#icon-${props.type}`"/>
     </svg>
     <img
@@ -33,12 +33,29 @@ const props = defineProps({
   height: 50px;
   border-radius: 5px;
   overflow: hidden;
-  color: red;
 }
 
-.control-button {
+.cover-control:hover,
+.cover-control:focus-visible {
+  box-shadow: var(--shadow-hover);
+}
+
+.cover-control:focus-visible {
+  outline: 2px solid var(--bg-color);
+}
+
+.cover-control:hover::before,
+.cover-control:focus-visible::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  opacity: 0.6;
+  width: 50px;
+  height: 50px;
+}
+
+.cover-icon {
+  position: absolute;
+  opacity: 0.8;
   top: 10px;
   left: 10px;
   color: var(--extra-light-gray);
@@ -53,11 +70,15 @@ const props = defineProps({
 .track-info-wrapper {
   margin-left: 20px;
   font-size: 0.8rem;
-  color: var(--light-gray);
+  color: var(--gray);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .track-name {
-  color: var(--extra-light-gray);
+  color: var(--player-controls-color);
   font-weight: 700;
 }
 </style>

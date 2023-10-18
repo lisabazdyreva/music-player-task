@@ -19,12 +19,18 @@ const props = defineProps({
 <style scoped>
 .arrow-button {
   background-color: transparent;
-  color: var(--extra-light-gray);
+  color:  var(--player-controls-color);
   border: none;
   cursor: pointer;
 }
 
-.arrow-button:hover {
-  color: var(--light-gray);
+.arrow-button:hover,
+.arrow-button:focus-visible {
+  color: var(--gray);
+}
+
+.arrow-button:focus-visible {
+  outline: 2px solid var(--bg-color);
 }
 </style>
+

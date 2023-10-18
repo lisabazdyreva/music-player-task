@@ -69,7 +69,11 @@ import {AppRouter} from '~/consts/router';
 }
 
 .routing-link:hover,
-.routing-link:focus {
+.routing-link:focus-visible {
   color: var(--electric-indigo);
+}
+
+.routing-link:focus-visible {
+  outline: 3px solid var(--electric-indigo);
 }
 </style>
