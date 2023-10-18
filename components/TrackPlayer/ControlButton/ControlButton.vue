@@ -19,7 +19,7 @@ const props = defineProps({
     />
   </button>
   <div class="track-info-wrapper">
-    <span class="track-info">{{ props.currentTrack.name }}</span><br/> {{ props.currentTrack.artist }}
+    <span class="track-name">{{ props.currentTrack.name }}</span><br/> {{ props.currentTrack.artist }}
   </div>
 </template>
 

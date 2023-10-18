@@ -9,18 +9,17 @@ const store = useTracksStore();
 </script>
 
 <template>
-<!--  todo to consts-->
   <Header/>
-  <Layout :class="store.playerMode === 'list' ? 'layout-height' : 'layout-height-full'"/>
-  <Footer v-show="store.playerMode === 'pinned'"/>
+  <Layout :class="`layout-height${store.isPlayerShowed ? '' : '-full'}`"/>
+  <Footer v-show="store.isPlayerShowed" />
 </template>
 
 <style scoped>
-.layout-height-full {
+.layout-height {
   max-height: calc(100% - var(--header-height) - var(--footer-height) - 1rem);
 }
 
-.layout-height {
+.layout-height-full {
   max-height: calc(100% - var(--header-height) - 1rem);
 }
 </style>

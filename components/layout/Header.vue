@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {useTracksStore} from '~/store';
-
-const store = useTracksStore();
-const handleIsPlayerShowedToggle = () => {
-  store.togglePayerMode();
-};
-const buttonText = computed(() => `${store.playerMode === 'list' ? 'Show' : 'Hide'} player`); // todo to consts
+import HidePlayerButton from '~/components/HidePlayerButton.vue';
 </script>
 
 <template>
@@ -13,16 +7,10 @@ const buttonText = computed(() => `${store.playerMode === 'list' ? 'Show' : 'Hid
     <nav class="nav">
       <ul class="links-list">
         <li class="links-item">
-<!--          todo to consts-->
           <NuxtLink class="routing-link" to="/">Home</NuxtLink>
         </li>
         <li>
-          <button
-            class="player-mode-button"
-            @click="handleIsPlayerShowedToggle"
-          >
-            {{ buttonText }}
-          </button>
+          <HidePlayerButton />
         </li>
         <li class="links-item">
           <NuxtLink class="routing-link" to="/tracks">My Playlist</NuxtLink>
@@ -82,36 +70,5 @@ const buttonText = computed(() => `${store.playerMode === 'list' ? 'Show' : 'Hid
 .routing-link:hover,
 .routing-link:focus {
   color: var(--electric-indigo);
-}
-
-.player-mode-button {
-  position: relative;
-  background-color: var(--electric-indigo);
-  color: #ffffff;
-  padding: 1.5em;
-  border-radius: 50%;
-  overflow: hidden;
-  border: none;
-  max-width: 300px;
-  min-width: min-content;
-  align-self: center;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 0.7rem;
-
-  @media screen and (min-width: 768px) {
-    font-size: 1rem;
-  }
-}
-
-.player-mode-button:hover::before,
-.player-mode-button:focus::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgb(0, 0, 0, 0.2);
 }
 </style>
