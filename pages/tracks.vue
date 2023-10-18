@@ -8,8 +8,11 @@
 </template>
 
 <style scoped>
-.page-header {
-  text-align: center;
-  margin: 2rem 0;
-}
+  .page-header {
+    text-align: center;
+    margin: 1rem 0 2rem;
+    color: var(--electric-indigo);
+    font-weight: 700; /*todo font weight*/
+    font-size: 2rem;
+  }
 </style>

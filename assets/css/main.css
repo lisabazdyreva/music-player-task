@@ -1,3 +1,12 @@
+:root {
+  --electric-indigo: #6600ff;
+  --light-gray: #dddddd;
+  --extra-light-gray: #f1f1f1;
+
+  --header-height: 60px;
+  --footer-height: 130px;
+}
+
 @font-face {
   font-family: 'Montserrat-Bold';
   src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
@@ -22,6 +31,12 @@
   font-display: swap;
 }
 
+/*@media (prefers-color-scheme: dark) {*/
+/*  #__nuxt {*/
+/*    background: #000000;*/
+/*  }*/
+/*}*/
+
 html {
   font-family: 'Montserrat-Regular', sans-serif;
 }
@@ -38,3 +53,46 @@ body,
   flex-direction: column;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--extra-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-gray);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--electric-indigo);
+}
+
+svg {
+  fill: currentColor;
+}
+
+.custom-player .audio-player {
+  .audio__btn-wrap {
+    justify-content: space-between;
+  }
+
+  .audio__play-start,
+  .audio__play-pause {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .audio__play-start svg,
+  .audio__play-pause svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .audio__progress-point:after {
+    display: none;
+  }
+}
